@@ -15,7 +15,7 @@ public class MonoAlphabeticCipher implements Cipher {
 	}
 	 
 	public String getSecretAlphabet() {
-		return null;
+		return secretAlphabet;
 	}
 	 
 	/**

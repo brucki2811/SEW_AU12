@@ -10,9 +10,9 @@ public class GUI {
 	@SuppressWarnings("unused")
 	private ShiftCipher sc;
 	@SuppressWarnings("unused")
-	private MonoalphabeticCipher mac;
+	private MonoAlphabeticCipher mac;
 	@SuppressWarnings("unused")
-	private SubstitutionsCipher sbc;
+	private SubstitutionCipher sbc;
 	@SuppressWarnings("unused")
 	private KeywordCipher kc;
 	
@@ -26,7 +26,7 @@ public class GUI {
 	private Container button;
 	private Container text;
 	
-	public GUI(Cipher c,ShiftCipher sc,MonoalphabeticCipher mac,SubstitutionsCipher sbc,KeywordCipher kc){
+	public GUI(Cipher c,ShiftCipher sc,MonoAlphabeticCipher mac,SubstitutionCipher sbc,KeywordCipher kc){
 		
 		this.c = c;
 		this.sc = sc;
