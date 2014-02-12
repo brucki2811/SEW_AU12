@@ -1,11 +1,15 @@
 package brucknerercegpolydor;
 
-/**
- * 
- * @author 
- * @version 2014.2.12
- */
 
-public class KeywordCipher extends MonoalphabeticCipher {
-
+public class KeywordCipher extends MonoAlphabeticCipher {
+ 
+	public KeywordCipher(String keyword) {
+	 
+	}
+	 
+	public void setKeyword(String keyword) {
+	 
+	}
+	 
 }
+ 
