@@ -1,5 +1,10 @@
 package brucknerercegpolydor;
 
+/**
+ * 
+ * @author 
+ * @version 
+ */
 
 public interface Cipher {
  
