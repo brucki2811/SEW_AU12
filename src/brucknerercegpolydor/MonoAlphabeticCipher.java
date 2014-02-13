@@ -24,7 +24,7 @@ public class MonoAlphabeticCipher implements Cipher {
 	 * @see brucknerercegpolydor.Cipher#encrypt(brucknerercegpolydor.lang.String)
 	 */
 	public String encrypt(String text) {
-		text.toLowerCase(Locale.GERMAN);
+		text = text.toLowerCase(Locale.GERMAN);
 		return text;
 	}
 	 
