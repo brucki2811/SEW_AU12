@@ -7,7 +7,9 @@ package brucknerercegpolydor;
  */
 
 public class KeywordCipher extends MonoAlphabeticCipher {
- 
+	
+	private char[] alphabet = "abcdefghijklmnopkqrstuvwxyzßöäü".toCharArray();
+	
 	public KeywordCipher(String keyword) {
 	 
 	}
