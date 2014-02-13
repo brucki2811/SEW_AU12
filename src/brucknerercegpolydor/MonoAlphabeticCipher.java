@@ -4,8 +4,8 @@ import java.util.Locale;
 
 /**
  * 
- * @author 
- * @version 
+ * @author Stefan Polydor
+ * @version 2014.2.12
  */
 
 public class MonoAlphabeticCipher implements Cipher {
@@ -19,19 +19,27 @@ public class MonoAlphabeticCipher implements Cipher {
 	public String getSecretAlphabet() {
 		return secretAlphabet;
 	}
-	 
+	
 	/**
-	 * @see brucknerercegpolydor.Cipher#encrypt(brucknerercegpolydor.lang.String)
+	 * @return gibt null zurück wenn der Parameter eine Exception auslöst, wenn keine Exception Ausgelöst wird wird der verschlüsselte Text ausgegeben 
+	 * @see brucknerercegpolydor.Cipher#encrypt(brucknerercegpolydor)
 	 */
 	public String encrypt(String text) {
-		text = text.toLowerCase(Locale.GERMAN);
+		try {
+			text = text.toLowerCase(Locale.GERMAN);
+		} catch (IllegalArgumentException e)	{
+			return null;
+		} catch (NullPointerException e)	{
+			return null;
+		}
 		return text;
 	}
 	 
 	/**
-	 * @see brucknerercegpolydor.Cipher#decrypt(brucknerercegpolydor.lang.String)
+	 * @see brucknerercegpolydor.Cipher#decrypt(brucknerercegpolydor)
 	 */
 	public String decrypt(String text) {
+		text = text.toLowerCase(Locale.GERMAN);
 		return text;
 	}
 	public static void main(String[] args) {

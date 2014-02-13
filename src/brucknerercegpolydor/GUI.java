@@ -1,5 +1,10 @@
 package brucknerercegpolydor;
 
+/**
+ * @author Michael Bruckner
+ * @version 2014.2.12
+ */
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;

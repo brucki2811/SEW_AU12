@@ -2,8 +2,8 @@ package brucknerercegpolydor;
 
 /**
  * 
- * @author 
- * @version 
+ * @author Stipe Erceg
+ * @version 2014.2.12
  */
 
 public class KeywordCipher extends MonoAlphabeticCipher {
