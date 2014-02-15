@@ -11,7 +11,7 @@ import java.util.Locale;
 public class MonoAlphabeticCipher implements Cipher {
  
 	private String secretAlphabet;
-
+	 
 	public MonoAlphabeticCipher() {
 		this.secretAlphabet = "abcdefghijklmnopqrstuvwxyzäöüß";
 	}
@@ -21,7 +21,7 @@ public class MonoAlphabeticCipher implements Cipher {
 	}
 	
 	/**
-	 * @return gibt null zurueck wenn der Parameter eine Exception ausloest, wenn keine Exception Ausgeloest wird wird der verschluesselte Text ausgegeben
+	 * @return gibt null zurück wenn der Parameter eine Exception auslöst, wenn keine Exception Ausgelöst wird wird der verschlüsselte Text ausgegeben 
 	 * @see Cipher#encrypt(brucknerercegpolydor)
 	 */
 	public String encrypt(String text) {
@@ -29,15 +29,13 @@ public class MonoAlphabeticCipher implements Cipher {
 			text = text.toLowerCase(Locale.GERMAN);
 		} catch (IllegalArgumentException e)	{
 			return null;
-		} catch (NullPointerException e)    {
-            return null;
-        }
-
+		} catch (NullPointerException e)	{
+			return null;
+		}
 		return text;
 	}
 	 
 	/**
-	 * @return alsl sldkls
 	 * @see Cipher#decrypt(brucknerercegpolydor)
 	 */
 	public String decrypt(String text) {
@@ -83,7 +81,7 @@ public class MonoAlphabeticCipher implements Cipher {
 		}
 		return true;
 	}
-
+	
 	public static void main(String[] args) {
 		MonoAlphabeticCipher a = new MonoAlphabeticCipher();
 		if (a.checkSecretAlphabet("abcdefghijklmnopqrstuvwxyzßöäü")) {
@@ -92,5 +90,4 @@ public class MonoAlphabeticCipher implements Cipher {
 			System.out.println("Fail");
 		}
 	}
- }
- 
+}
