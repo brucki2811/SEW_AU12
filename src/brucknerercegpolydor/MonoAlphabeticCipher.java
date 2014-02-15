@@ -21,7 +21,8 @@ public class MonoAlphabeticCipher implements Cipher {
 	}
 	
 	/**
-	 * @return gibt null zurück wenn der Parameter eine Exception auslöst, wenn keine Exception Ausgelöst wird wird der verschlüsselte Text ausgegeben 
+	 * @param text ist der text der Verschlüsselt werden soll
+	 * @return string gibt null zurück wenn der Parameter eine Exception auslöst, wenn keine Exception Ausgelöst wird wird der verschlüsselte Text ausgegeben
 	 * @see Cipher#encrypt(brucknerercegpolydor)
 	 */
 	public String encrypt(String text) {
@@ -36,6 +37,8 @@ public class MonoAlphabeticCipher implements Cipher {
 	}
 	 
 	/**
+	 * @param text ist der Text der Entschüsselt werden soll
+	 * @return string gibt den entschlüsselten Text zurück
 	 * @see Cipher#decrypt(brucknerercegpolydor)
 	 */
 	public String decrypt(String text) {
