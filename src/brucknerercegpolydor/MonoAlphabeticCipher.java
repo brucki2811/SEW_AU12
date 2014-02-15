@@ -11,7 +11,7 @@ import java.util.Locale;
 public class MonoAlphabeticCipher implements Cipher {
  
 	private String secretAlphabet;
-	 
+
 	public MonoAlphabeticCipher() {
 		this.secretAlphabet = "abcdefghijklmnopqrstuvwxyzäöüß";
 	}
