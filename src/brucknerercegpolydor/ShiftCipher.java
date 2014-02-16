@@ -2,16 +2,16 @@ package brucknerercegpolydor;
 
 /**
  * 
- * @author
- * @version 
- * @author Stipe Erceg
- * @version 2014.2.12
+ * @author Stefan Erceg
+ * @version 2014.02.12
  */
 
 public class ShiftCipher extends MonoAlphabeticCipher {
 	
 	public int value;
 	public int shiftvalue;
+	
+	public int stelle;
 	
 	public char[] alphabet = "abcdefghijklmnopkqrstuvwxyzßöäü".toCharArray();
 	
@@ -21,6 +21,9 @@ public class ShiftCipher extends MonoAlphabeticCipher {
 		this.value = value;
 		for(int i=0; i < encrypt.length; i++) {
 			encrypt[i] = alphabet[i + this.value];
+			if(this.stelle > 30) {
+				this.value = this.value - 30;
+			}
 		}
 	}
 	
@@ -32,7 +35,7 @@ public class ShiftCipher extends MonoAlphabeticCipher {
 	}
 	
 	public static void main(String[] args) {
-		ShiftCipher sc = new ShiftCipher(0);
+		ShiftCipher sc = new ShiftCipher(2);
 		System.out.println(sc.encrypt("Hallo"));
 	}
 
