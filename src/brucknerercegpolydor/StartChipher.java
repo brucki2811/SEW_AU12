@@ -9,5 +9,5 @@ package brucknerercegpolydor;
  * Diese Klasse dient zum Starten von der GUI (wie in der Angabe verlangt)
  */
 public class StartChipher {
-	
+
 }

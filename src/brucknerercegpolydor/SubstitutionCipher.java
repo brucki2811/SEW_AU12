@@ -1,7 +1,5 @@
 package brucknerercegpolydor;
 
-import java.util.Locale;
-
 /**
  * 
  * @author Stefan Polydor
@@ -9,28 +7,33 @@ import java.util.Locale;
  */
 
 public class SubstitutionCipher extends MonoAlphabeticCipher {
-	
+
+
 	/**
-	 * 
-	 * @param secretalphabet
+	 * Dieser Konstruktor erzeugt ein Objekt mit einem angegebenem secretalphabet
+	 * @param secretalphabet muss 30 Zeichen lang sein und es daf kein Zeichen doppelt vorkommen, falls doch wird ein default secretAlphabet gesetzt
 	 */
 	public SubstitutionCipher(String secretalphabet) {
+		super();
 		this.setSecretAlphabet(secretalphabet);
 	}
 	
 	/**
-	 * 
-	 * @param secretAlphabet
+	 * Diese Methode setzt ein secretAlphabet
+	 * @param secretAlphabet muss 30 Zeichen lang sein und es darf kein Zeichen doppelt vorkommen, falls doch wird ein default secretAlphabet gesetzt
 	 */
 	public void setSecretAlphabet(String secretAlphabet) {
 		try {
-			if (secretAlphabet.length() == 30)
-				this.setSecretAlphabet(secretAlphabet.toLowerCase(Locale.GERMAN));
-			else throw new IllegalArgumentException(); //gehört noch durch eine passende ersetzt
-		} catch (IllegalArgumentException e)	{
-			
-		} catch (NullPointerException e)	{
-			
+			if (secretAlphabet.length() == 30)	{	// hier wird überprüft ob das zu setzende secretAlphabet 30 Zeichen lang ist
+				super.setSecretAlphabet(secretAlphabet);
+			}
+			if (! super.checkSecretAlphabet()) {	// hier wird überprüft ob es keine doppelten Zeichen beinhaltet, falls doch wird ein default secretAlphabet gesetzt
+				super.setSecretAlphabet("abcdefghijklmnopqrstuvwxyzäöüß");
+			}
+		} catch (IllegalArgumentException e) {
+			super.setSecretAlphabet("abcdefghijklmnopqrstuvwxyzäöüß");
+		} catch (NullPointerException e) {
+			super.setSecretAlphabet("abcdefghijklmnopqrstuvwxyzäöüß");
 		}
 	}
 	
