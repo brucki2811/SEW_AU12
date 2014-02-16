@@ -166,22 +166,5 @@ public class MonoAlphabeticCipher implements Cipher {
 
 		System.out.println(b.encrypt("adfs?"));
 		System.out.println(b.decrypt(b.encrypt("adfs?")));
-
-		/*
-		MonoAlphabeticCipher a = new MonoAlphabeticCipher();
-		System.out.println(a.getSecretAlphabet());
-		if (a.checkSecretAlphabet()) {
-			System.out.println("Erfolg");
-		} else System.out.println("Fail");
-
-		System.out.println();
-
-		SubstitutionCipher b = new SubstitutionCipher("ads");
-		if (b.checkSecretAlphabet()) {
-			System.out.println("Erfolg");
-			System.out.println(b.getSecretAlphabet());
-		} else
-			System.out.println("Fail");
-		*/
 	}
 }
