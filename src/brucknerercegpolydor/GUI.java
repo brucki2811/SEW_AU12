@@ -1,8 +1,13 @@
 package brucknerercegpolydor;
 
-import java.awt.*;
-import java.awt.event.*;
+/**
+ * @author Michael Bruckner
+ * @version 2014.2.12
+ */
+
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
 
 public class GUI {
 	@SuppressWarnings("unused") 
@@ -27,19 +32,29 @@ public class GUI {
 	private Container button;
 	private Container text;
 	
-	public GUI(){
+
+
+	public GUI(Cipher c,ShiftCipher sc,MonoAlphabeticCipher mac,SubstitutionCipher sbc,KeywordCipher kc){
+
 		
 		this.c = c;
 		this.sc = sc;
 		this.mac = mac;
 		this.sbc = sbc;
 		this.kc = kc;
-		
+
 		this.f = new JFrame("Verschlüsselung/Entschlüsselung");
 		this.ta1 = new JTextArea();
 		this.ta2 = new JTextArea();
 		this.jb1 = new JButton("Verschlüsseln");
 		this.jb2 = new JButton("Entschlüsseln");
+
+		this.f = new JFrame("Verschluesselung");
+		this.ta1 = new JTextArea();
+		this.ta2 = new JTextArea();
+		this.jb1 = new JButton("Verschluesseln");
+		this.jb2 = new JButton("Entschluesseln");
+
 		this.jl = new JLabel();
 		
 		
