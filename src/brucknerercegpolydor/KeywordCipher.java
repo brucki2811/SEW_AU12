@@ -8,13 +8,8 @@ package brucknerercegpolydor;
 
 public class KeywordCipher extends MonoAlphabeticCipher {
 	
-	public char[] keyword;
-	
-	//public char[] alphabet = "abcdefghijklmnopkqrstuvwxyzßöäü".toCharArray();
-	
-	public char[] encrypt;
-	
 	public KeywordCipher(String keyword) {
+		
 		char[] tmp = new char[30];
 		
 		
@@ -28,12 +23,6 @@ public class KeywordCipher extends MonoAlphabeticCipher {
 			}
 		}
 		
-		/*for(int i=0; i < keyword.length(); i++) {
-			this.keyword[i] = keyword.toCharArray();
-		}
-		for(int i=0; i < encrypt.length; i++) {
-			encrypt[i] = 
-		}*/
 	}
 	
 	public char nextChar(char[] decrypt) {
@@ -45,6 +34,7 @@ public class KeywordCipher extends MonoAlphabeticCipher {
 		}
 		
 		return ' ';
+		
 	}
 	
 	public void setKeyword(String keyword) {
@@ -52,8 +42,10 @@ public class KeywordCipher extends MonoAlphabeticCipher {
 	}
 	
 	public static void main(String[] args) {
+		
 		KeywordCipher kc = new KeywordCipher("hallo");
-		System.out.println(kc.encrypt("HalloGeyer"));
+		System.out.println(kc.encrypt("HalloWelt"));
+		
 	}
 	 
 }
