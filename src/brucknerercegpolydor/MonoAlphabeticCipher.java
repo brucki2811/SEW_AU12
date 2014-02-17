@@ -38,7 +38,7 @@ public class MonoAlphabeticCipher implements Cipher {
 	/**
 	 * Ändert das secretAlphabet
 	 * Diese Methode wurde geschrieben um in der Klasse SubstitutionCipher das secretAlphabet zu setzen
-	 * @param secretAlphabet ist das zu setzende secretAlphabet
+	 * @param secretAlphabet ist das zu setzende secretAlphabet (länge = 30 und kein doppelten Zeichen)
 	 */
 	public void setSecretAlphabet(String secretAlphabet) {
 		try {
