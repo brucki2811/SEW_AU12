@@ -8,35 +8,23 @@ package brucknerercegpolydor;
 
 public class ShiftCipher extends MonoAlphabeticCipher {
 	
-	public int value;
-	public int shiftvalue;
-	
-	public int stelle;
-	
-	public char[] alphabet = "abcdefghijklmnopkqrstuvwxyzßöäü".toCharArray();
-	
-	public char[] encrypt = "                              ".toCharArray();
-	
 	public ShiftCipher(int value) {
-		this.value = value;
-		for(int i=0; i < encrypt.length; i++) {
-			encrypt[i] = alphabet[i + this.value];
-			if(this.stelle > 30) {
-				this.value = this.value - 30;
-			}
-		}
+		setShiftAmount(value);
 	}
 	
 	public void setShiftAmount(int shiftvalue) {
-		this.shiftvalue = shiftvalue;
-		for(int i=0; i < encrypt.length; i++) {
-			encrypt[i] = alphabet[i + this.value];
+		String alphabet = this.getSecretAlphabet();
+		String encrypted = "";
+		if (shiftvalue < 0) throw new IllegalArgumentException("Wert muss größer 0 sein"); 
+		for(int i=0; i < alphabet.length(); i++) {
+			encrypted += alphabet.charAt((i + shiftvalue)%30);
 		}
+		this.setSecretAlphabet(encrypted);
 	}
 	
 	public static void main(String[] args) {
 		ShiftCipher sc = new ShiftCipher(2);
-		System.out.println(sc.encrypt("Hallo"));
+		System.out.println(sc.encrypt("Halloßüäö!9"));
 	}
 
 }
