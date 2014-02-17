@@ -10,7 +10,7 @@ public class ShiftCipher extends MonoAlphabeticCipher {
 	
 	/**
 	 * im Konstruktor wird die Methode "setShiftAmount" ausgeführt
-	 * @param mittels "value" wird angegeben, um wie viele Stellen die Buchstaben verschoben werden sollen
+	 * @param value ist der Wert, um wie viele Stellen die Buchstaben verschoben werden sollen
 	 */
 	
 	public ShiftCipher(int value) {
@@ -19,7 +19,7 @@ public class ShiftCipher extends MonoAlphabeticCipher {
 	
 	/**
 	 * die Methode verschiebt die Buchstaben um den eingegebenen Wert
-	 * @param mittels "shiftvalue" wird angegeben, um wie viele Stellen die Buchstaben verschoben werden sollen
+	 * @param shiftvalue ist der Wert, um wie viele Stellen die Buchstaben verschoben werden sollen
 	 */
 	
 	public void setShiftAmount(int shiftvalue) {

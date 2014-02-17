@@ -10,7 +10,7 @@ public class KeywordCipher extends MonoAlphabeticCipher {
 	
 	/**
 	 * im Konstruktor wird die Methode "setKeyword" ausgeführt
-	 * @param mittels "keyword" wird ein Schlüsselwort bzw. ein Kennwort angegeben
+	 * @param keyword ist das eingegebene Schlüsselwort bzw. Kennwort
 	 */
 	
 	public KeywordCipher(String keyword) {
@@ -20,7 +20,7 @@ public class KeywordCipher extends MonoAlphabeticCipher {
 	/**
 	 * die Methode fügt das eingebene Schlüsselwort am Beginn des Alphabets hinzu, 
 	 * danach folgen alle Buchstaben des Alphabets, die nicht im Schlüsselwort vorkommen
-	 * @param mittels "keyword" wird ein Schlüsselwort bzw. ein Kennwort angegeben
+	 * @param keyword ist das eingegebene Schlüsselwort bzw. Kennwort
 	 */
 	
 	public void setKeyword(String keyword) {
