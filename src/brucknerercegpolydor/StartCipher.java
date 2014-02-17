@@ -2,14 +2,18 @@ package brucknerercegpolydor;
 
 /**
  * @author Michael Bruckner
- * @version 2014.2.12
+ * @version 2014.2.17
  */
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class GUI {
+
+public class StartCipher implements ActionListener {
+	private StartCipher stc;
 	@SuppressWarnings("unused") 
 	private Cipher c;
 	@SuppressWarnings("unused")
@@ -34,26 +38,15 @@ public class GUI {
 	
 
 
-	public GUI(Cipher c,ShiftCipher sc,MonoAlphabeticCipher mac,SubstitutionCipher sbc,KeywordCipher kc){
+	public StartCipher(){
 
-		
-		this.c = c;
-		this.sc = sc;
-		this.mac = mac;
-		this.sbc = sbc;
-		this.kc = kc;
+		this.stc = stc;
 
 		this.f = new JFrame("Verschlüsselung/Entschlüsselung");
 		this.ta1 = new JTextArea();
 		this.ta2 = new JTextArea();
 		this.jb1 = new JButton("Verschlüsseln");
 		this.jb2 = new JButton("Entschlüsseln");
-
-		this.f = new JFrame("Verschluesselung");
-		this.ta1 = new JTextArea();
-		this.ta2 = new JTextArea();
-		this.jb1 = new JButton("Verschluesseln");
-		this.jb2 = new JButton("Entschluesseln");
 
 		this.jl = new JLabel();
 		
@@ -63,11 +56,13 @@ public class GUI {
 		
 		this.f.setLayout(new BorderLayout());
 		this.button.setLayout(new GridLayout(0,2));
-		this.text.setLayout(new GridLayout(0,2));
+		this.text.setLayout(new GridLayout(0,3));
 		
 		this.button.add(this.jb1);
 		this.button.add(this.jb2);
+		
 		this.text.add(this.ta1, BorderLayout.WEST);
+		this.text.add(this.jl, BorderLayout.CENTER);
 		this.text.add(this.ta2, BorderLayout.EAST);
 		
 		
@@ -78,6 +73,11 @@ public class GUI {
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setSize(500, 500);
         f.setVisible(true);
+        
+	}
+	private Component drawLine(int i, int j, int k, int l) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	public String getText1() {
 		return ta1.getText();
@@ -99,5 +99,15 @@ public class GUI {
         if(e.getSource() == this.jb2)return true;
         return false;
     }
-
+	public static void main (String[]args){
+		StartCipher stc = new StartCipher();
+	}
+	public void actionPerformed(ActionEvent e){
+		if(this.stc.getButtonB1(e)){
+			this.stc.setText1(stc.getText2());
+		}
+		if(this.stc.getButtonB2(e)){
+			this.stc.setText2(stc.getText1());
+		}
+	}
 }
