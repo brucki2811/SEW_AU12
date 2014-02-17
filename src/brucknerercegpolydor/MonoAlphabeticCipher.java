@@ -41,7 +41,18 @@ public class MonoAlphabeticCipher implements Cipher {
 	 * @param secretAlphabet ist das zu setzende secretAlphabet
 	 */
 	public void setSecretAlphabet(String secretAlphabet) {
-		this.secretAlphabet = secretAlphabet;
+		try {
+			if (secretAlphabet.length() == 30) {    // hier wird überprüft ob das zu setzende secretAlphabet 30 Zeichen lang ist
+				this.secretAlphabet = secretAlphabet;
+			}
+			if (! this.checkSecretAlphabet()) {	// hier wird überprüft ob es keine doppelten Zeichen beinhaltet, falls doch wird ein default secretAlphabet gesetzt
+				this.secretAlphabet = "abcdefghijklmnopqrstuvwxyzäöüß";
+			}
+		} catch (IllegalArgumentException e) {
+			this.secretAlphabet = "abcdefghijklmnopqrstuvwxyzäöüß";
+		} catch (NullPointerException e) {
+			this.secretAlphabet = "abcdefghijklmnopqrstuvwxyzäöüß";
+		}
 	}
 	
 	/**

@@ -20,7 +20,7 @@ public class AufruferKlasse implements ActionListener{
 	
 	
 	public AufruferKlasse(){
-		this.g = new GUI();
+		// this.g = new GUI();
 	}
 	public static void main (String[]args){
 		AufruferKlasse ak =  new AufruferKlasse();
