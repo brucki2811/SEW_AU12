@@ -15,7 +15,7 @@ public class ShiftCipher extends MonoAlphabeticCipher {
 	public void setShiftAmount(int shiftvalue) {
 		String alphabet = this.getSecretAlphabet();
 		String encrypted = "";
-		if (shiftvalue < 0) throw new IllegalArgumentException("Wert muss größer 0 sein"); 
+		if (shiftvalue < 0) throw new IllegalArgumentException("Der angegebene Wert muss größer 0 sein"); 
 		for(int i=0; i < alphabet.length(); i++) {
 			encrypted += alphabet.charAt((i + shiftvalue)%30);
 		}
