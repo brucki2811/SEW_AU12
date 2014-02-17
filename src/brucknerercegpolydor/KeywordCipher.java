@@ -18,14 +18,11 @@ public class KeywordCipher extends MonoAlphabeticCipher {
 		
 		encrypted = keyword;
 		
-		/* for (int i=0; i<keyword.length()-1;i++) {
-			
-			if (keyword.toCharArray()[i] > keyword.toCharArray()[i+1]) {
-				for (int j=0; j<keyword.length()-1;j++) {
-					if(keyword.toCharArray()[j] == keyword.toCharArray()[j+1]) throw new IllegalArgumentException("Buchstaben dürfen nicht doppelt vorkommen");
-				}
+		for (int i=0; i < keyword.length()-1; i++) {
+			if(keyword.indexOf(keyword.toCharArray()[i]) != keyword.lastIndexOf(keyword.toCharArray()[i])) {
+				throw new IllegalArgumentException("Buchstaben dürfen im Wort jeweils nur einmal vorkommen");
 			}
-		} */
+		}
 		
 		for(char c : this.getSecretAlphabet().toCharArray()) {
 			if (encrypted.indexOf(c) == -1) {
@@ -38,7 +35,7 @@ public class KeywordCipher extends MonoAlphabeticCipher {
 	
 	public static void main(String[] args) {
 		
-		KeywordCipher kc = new KeywordCipher("system");
+		KeywordCipher kc = new KeywordCipher("halo");
 		System.out.println(kc.encrypt("haloWelt"));
 		
 	}
