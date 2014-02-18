@@ -55,8 +55,8 @@ public class StartCipher implements ActionListener, ListSelectionListener {
 		this.tf1 = new JTextField();
 		this.jb1 = new JButton("Verschlüsseln");
 		this.jb2 = new JButton("Entschlüsseln");
-		String[] ciphers = {"Keyword Cipher","Shift Cipher","Substitution Cipher"};
-		this.drop = new JComboBox<String>();
+		String ComboBoxList[] = {"Keyword Cipher","Shift Cipher","Substitution Cipher"};
+		this.drop = new JComboBox<String>(ComboBoxList);
 		this.l1 = new JLabel("Cipherauswahl:");
 		this.l2 = new JLabel("Verschieben der Zeichen(Zahl):");
 		this.l3 = new JLabel("Eingabe:");
