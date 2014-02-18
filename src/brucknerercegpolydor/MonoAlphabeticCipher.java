@@ -71,8 +71,6 @@ public class MonoAlphabeticCipher implements Cipher {
 	public String encrypt(String text) {
 		try {
 			text = text.toLowerCase(Locale.GERMAN);	// wandelt den zu entschlüsselnden Text in Kleinbuchstaben um
-		} catch (IllegalArgumentException e) {
-			throw new IllegalArgumentException();
 		} catch (NullPointerException e) {
 			throw new NullPointerException();
 		}
@@ -108,8 +106,6 @@ public class MonoAlphabeticCipher implements Cipher {
 	public String decrypt(String text) {
 		try {
 			text = text.toLowerCase(Locale.GERMAN);	// wandelt den zu entschlüsselnden Text in Kleinbuchstaben um
-		} catch (IllegalArgumentException e) {
-			throw new IllegalArgumentException();
 		} catch (NullPointerException e) {
 			throw new NullPointerException();
 		}
@@ -130,47 +126,37 @@ public class MonoAlphabeticCipher implements Cipher {
 			if (! checkChange)	// wenn checkChange = false dann wird das aktuell Ausgewählte Zeichen dem auszugebendem Text angehängt da es nicht im secretAlphabet vorhanden ist
 				text = text + cut;
 		}
-
 		return text;
 	}
 
 	/**
 	 * Diese Methode überprüft ob in dem Angegebenem SecretAlphabet keine doppelten Buchstaben vorhanden sind
 	 * @return true wenn keine doppelten Buchstaben vorhanden sind und falls, wenn 2 doppelte Vorkommen.
-	 * @throws java.lang.IllegalArgumentException wenn diese ausgelöst wird
 	 * @throws java.lang.NullPointerException wenn diese ausgelöst wird
 	 */
 	public boolean checkSecretAlphabet() {
 		try {
-			if (this.getSecretAlphabet().length() < 1)	{	// Wenn die Länge des secretAlphabet = 0 wird false returnt
-				return false;
-			} else if (this.getSecretAlphabet().length() == 1) {	// Wenn die Länge des secretAlphabet = 1 wird true returnt
-				return true;
-			} else {
-				char[] secAlphabet = getSecretAlphabet().toCharArray();		// hier wird das secretAlphabet in ein char[] umgewandelt
-				int reduce = 1;		// dient zur Variablen verringerung da nach jedem Durchgang das Zeichen mit dem höchsten Int-Wert am Ende steht
-				char temp = ' ';	// speichert eine der zu tauschenden chars
-				int change;		// kennzeichnet ob ein Tausch stattgefuden hat
-				for (int y = 0; y < getSecretAlphabet().length() - reduce; y++) {
-					change = 0;		// change wird = 0 gesetzt
-					for (int x = 0; x < getSecretAlphabet().length() - reduce; x++) {	// Wiederholt die folgende überprüfung solange, bis das gesamte secretAlphabet nach dem Int-Werten sortiert wurde oder es 2 gleiche Zeichen beinhaltet
-						if (secAlphabet[x] > secAlphabet[x + 1]) {	// Wenn das aktuell Ausgewählte Zeichen größer als das nächste ist wird es vertauscht
-							temp = secAlphabet[x];	// hier wird das aktuell Ausgewählte Zeichen zwischengespeichert
-							secAlphabet[x] = secAlphabet[x + 1];	// hier wird das das kleinere Zeichen an der Position des Größerem gespeichert
-							secAlphabet[x + 1] = temp;	// hier wird das größere Zeichen an der Position des Kleinerem gespeichert
-							change++;	// change wird um 1 erhöht um eine Vertauschung zu kennzeichen
-						} else if (secAlphabet[x] == secAlphabet[x + 1]) {	// Wenn das aktuelle Zeichen gleich dem nächsten wird false return, da 2 gleiche Zeichen vorhanden sind
-							return false;
-						}
+			char[] secAlphabet = getSecretAlphabet().toCharArray();		// hier wird das secretAlphabet in ein char[] umgewandelt
+			int reduce = 1;		// dient zur Variablen verringerung da nach jedem Durchgang das Zeichen mit dem höchsten Int-Wert am Ende steht
+			char temp = ' ';	// speichert eine der zu tauschenden chars
+			int change;		// kennzeichnet ob ein Tausch stattgefuden hat
+			for (int y = 0; y < getSecretAlphabet().length() - reduce; y++) {
+				change = 0;		// change wird = 0 gesetzt
+				for (int x = 0; x < getSecretAlphabet().length() - reduce; x++) {	// Wiederholt die folgende überprüfung solange, bis das gesamte secretAlphabet nach dem Int-Werten sortiert wurde oder es 2 gleiche Zeichen beinhaltet
+					if (secAlphabet[x] > secAlphabet[x + 1]) {	// Wenn das aktuell Ausgewählte Zeichen größer als das nächste ist wird es vertauscht
+						temp = secAlphabet[x];	// hier wird das aktuell Ausgewählte Zeichen zwischengespeichert
+						secAlphabet[x] = secAlphabet[x + 1];	// hier wird das das kleinere Zeichen an der Position des Größerem gespeichert
+						secAlphabet[x + 1] = temp;	// hier wird das größere Zeichen an der Position des Kleinerem gespeichert
+						change++;	// change wird um 1 erhöht um eine Vertauschung zu kennzeichen
+					} else if (secAlphabet[x] == secAlphabet[x + 1]) {	// Wenn das aktuelle Zeichen gleich dem nächsten wird false return, da 2 gleiche Zeichen vorhanden sind
+						return false;
 					}
-					if (change == 0) {	// Wenn change = 0 wird der Durchgang unterbrochen und es wird true returnt da es keine doppelten Zeichen gibt
-						return true;
-					}
-					reduce++;	// wird erhöht da nach jedem Durchgang das größte Zeichen am Ende steht
 				}
+				if (change == 0) {	// Wenn change = 0 wird der Durchgang unterbrochen und es wird true returnt da es keine doppelten Zeichen gibt
+					return true;
+				}
+				reduce++;	// wird erhöht da nach jedem Durchgang das größte Zeichen am Ende steht
 			}
-		} catch (IllegalArgumentException e) {
-			throw new IllegalArgumentException();
 		} catch (NullPointerException e) {
 			throw new NullPointerException();
 		}
