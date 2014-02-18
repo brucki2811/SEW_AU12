@@ -1,7 +1,5 @@
 package brucknerercegpolydor;
 
-import java.util.Locale;
-
 /**
  * 
  * @author Stefan Polydor
@@ -9,30 +7,15 @@ import java.util.Locale;
  */
 
 public class SubstitutionCipher extends MonoAlphabeticCipher {
-	
+
+
 	/**
-	 * 
-	 * @param secretalphabet
+	 * Dieser Konstruktor erzeugt ein Objekt mit einem angegebenem secretalphabet
+	 * @param secretalphabet muss 30 Zeichen lang sein und es daf kein Zeichen doppelt vorkommen, falls doch wird ein default secretAlphabet gesetzt
 	 */
 	public SubstitutionCipher(String secretalphabet) {
-		this.setSecretAlphabet(secretalphabet);
+		super();
+		super.setSecretAlphabet(secretalphabet);
 	}
-	
-	/**
-	 * 
-	 * @param secretAlphabet
-	 */
-	public void setSecretAlphabet(String secretAlphabet) {
-		try {
-			if (secretAlphabet.length() == 30)
-				this.setSecretAlphabet(secretAlphabet.toLowerCase(Locale.GERMAN));
-			else throw new IllegalArgumentException(); //gehört noch durch eine passende ersetzt
-		} catch (IllegalArgumentException e)	{
-			
-		} catch (NullPointerException e)	{
-			
-		}
-	}
-	
 }
  

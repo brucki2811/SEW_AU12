@@ -12,8 +12,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class StartCipher implements ActionListener {
-	private StartCipher stc;
+public class StartChiper implements ActionListener {
+	private ShiftCipher stc;
 	@SuppressWarnings("unused") 
 	private Cipher c;
 	@SuppressWarnings("unused")
@@ -38,7 +38,7 @@ public class StartCipher implements ActionListener {
 	
 
 
-	public StartCipher(){
+	public StartChiper(){
 
 		this.stc = stc;
 
