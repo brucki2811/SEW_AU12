@@ -1,5 +1,7 @@
 package brucknerercegpolydor;
 
+import java.awt.event.ActionEvent;
+
 /**
  * 
  * @author Stefan Erceg
@@ -47,5 +49,6 @@ public class ShiftCipher extends MonoAlphabeticCipher {
 		ShiftCipher sc = new ShiftCipher(2);
 		System.out.println(sc.encrypt("Halloßüäö!9"));
 	}
+
 
 }

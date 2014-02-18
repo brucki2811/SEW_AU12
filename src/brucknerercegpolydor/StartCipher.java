@@ -2,18 +2,19 @@ package brucknerercegpolydor;
 
 /**
  * @author Michael Bruckner
- * @version 2014.2.17
+ * @version 2014.2.18
  */
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionListener;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class StartChiper implements ActionListener {
-	private ShiftCipher stc;
+public class StartCipher implements ActionListener, ListSelectionListener {
+	private StartCipher stc;
 	@SuppressWarnings("unused") 
 	private Cipher c;
 	@SuppressWarnings("unused")
@@ -31,14 +32,15 @@ public class StartChiper implements ActionListener {
 	private JTextArea ta2;
 	private JButton jb1;
 	private JButton jb2;
-	private JLabel jl;
+	private JLabel l;
+	private JList<String> jl;
 	
 	private Container button;
 	private Container text;
 	
 
 
-	public StartChiper(){
+	public StartCipher(){
 
 		this.stc = stc;
 
@@ -48,8 +50,11 @@ public class StartChiper implements ActionListener {
 		this.jb1 = new JButton("Verschlüsseln");
 		this.jb2 = new JButton("Entschlüsseln");
 
-		this.jl = new JLabel();
-		
+		this.l = new JLabel();
+		this.jl = new JList<String>();
+		this.jl.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		this.jl.setBorder(BorderFactory.createEtchedBorder(Color.white, Color.gray));
+		this.jl.addListSelectionListener(stc);
 		
 		this.button = new Container();
 		this.text = new Container();
@@ -62,7 +67,7 @@ public class StartChiper implements ActionListener {
 		this.button.add(this.jb2);
 		
 		this.text.add(this.ta1, BorderLayout.WEST);
-		this.text.add(this.jl, BorderLayout.CENTER);
+		this.text.add(this.l, BorderLayout.CENTER);
 		this.text.add(this.ta2, BorderLayout.EAST);
 		
 		
@@ -75,10 +80,7 @@ public class StartChiper implements ActionListener {
         f.setVisible(true);
         
 	}
-	private Component drawLine(int i, int j, int k, int l) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 	public String getText1() {
 		return ta1.getText();
 	}
