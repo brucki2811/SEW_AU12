@@ -6,14 +6,13 @@ package brucknerercegpolydor;
  */
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Iterator;
-import java.util.ArrayList;
 
 public class StartCipher implements ActionListener, ListSelectionListener {
 	private StartCipher stc;
@@ -32,17 +31,20 @@ public class StartCipher implements ActionListener, ListSelectionListener {
 	private JFrame f;
 	private JTextArea ta1;
 	private JTextArea ta2;
+	private JTextField tf1;
 	private JButton jb1;
 	private JButton jb2;
-	private JLabel l;
-	private JList<String> jl;
-	private DefaultListModel<String> dlm;
-	
-	private ArrayList<Cipher> cipher;
+	private JLabel l1;
+	private JLabel l2;
+	private JLabel l3;
+	private JLabel l4;
+	private JComboBox<String> drop;
 	
 	private Container button;
 	private Container text;
-
+	private Container dropdown;
+	
+	
 	public StartCipher(){
 
 		this.stc = stc;
@@ -50,35 +52,41 @@ public class StartCipher implements ActionListener, ListSelectionListener {
 		this.f = new JFrame("Verschlüsselung/Entschlüsselung");
 		this.ta1 = new JTextArea();
 		this.ta2 = new JTextArea();
+		this.tf1 = new JTextField();
 		this.jb1 = new JButton("Verschlüsseln");
 		this.jb2 = new JButton("Entschlüsseln");
-		
-		cipher = new ArrayList<Cipher>();
-		
-		this.dlm = new DefaultListModel<String>();
-		this.l = new JLabel();
-		this.jl = new JList<String>();
-		this.jl.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		this.jl.setBorder(BorderFactory.createEtchedBorder(Color.white, Color.gray));
-		this.jl.addListSelectionListener(stc);
-		
+		String[] ciphers = {"Keyword Cipher","Shift Cipher","Substitution Cipher"};
+		this.drop = new JComboBox<String>();
+		this.l1 = new JLabel("Cipherauswahl:");
+		this.l2 = new JLabel("Verschieben der Zeichen(Zahl):");
+		this.l3 = new JLabel("Eingabe:");
+		this.l4 = new JLabel("Ausgabe:");
 		
 		this.button = new Container();
 		this.text = new Container();
-		
+		this.dropdown = new Container();
+
 		this.f.setLayout(new BorderLayout());
 		this.button.setLayout(new GridLayout(0,2));
-		this.text.setLayout(new GridLayout(0,3));
-				
+		this.text.setLayout(new GridLayout(4,0));
+		this.dropdown.setLayout(new GridLayout(2,2));
+		
 		this.button.add(this.jb1);
 		this.button.add(this.jb2);
 		
-		this.text.add(this.ta1, BorderLayout.WEST);
-		this.text.add(this.jl,BorderLayout.CENTER);
-		this.text.add(this.ta2, BorderLayout.EAST);
+		this.dropdown.add(this.l1);
+		this.dropdown.add(this.l2);
+		this.dropdown.add(this.drop);
+		this.dropdown.add(this.tf1);
 		
+		this.text.add(this.l3);
+		this.text.add(this.ta1);
+		this.text.add(this.l4);
+		this.text.add(this.ta2);
+
+		this.f.add(this.dropdown, BorderLayout.NORTH);
 		this.f.add(this.button, BorderLayout.SOUTH);
-		this.f.add(this.text);
+		this.f.add(this.text, BorderLayout.CENTER);
 		
 		
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -106,12 +114,7 @@ public class StartCipher implements ActionListener, ListSelectionListener {
 		ta2.setText(text2);
 	}
 	
-	public void setTitel(){
-		
-	}
-	public void getTitel(){
-		
-	}
+
 	public boolean getButtonB1(ActionEvent e){
         if(e.getSource() == this.jb1)return true;
         return false;
@@ -132,26 +135,7 @@ public class StartCipher implements ActionListener, ListSelectionListener {
 			this.stc.setText2(stc.getText1());
 		}
 	}
-	
-	
-	public int getSelectedIndex() {
-		return jl.getSelectedIndex();
-	}
-	
-	
-	public void addCipher(String titel){
-		this.dlm.addElement("Substitution Cipher");
 		
-	}
-	
-	public void allCiphers(){
-		int i= 0;
-		Iterator<Cipher> it = cipher.iterator();
-		while (it.hasNext()){
-			Cipher cipher = it.next();
-			System.out.println(i + ": " + cipher);
-		}
-	}
 	@Override
 	public void valueChanged(ListSelectionEvent arg0) {
 		
