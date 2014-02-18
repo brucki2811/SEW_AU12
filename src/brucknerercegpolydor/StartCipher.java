@@ -9,11 +9,11 @@ package brucknerercegpolydor;
 
 		private GUI g;
 		private ButtonListener bl;
-		private MonoAlphabeticCipher mac;
+
 		
 		public StartCipher(){
-			this.g = new GUI(this.mac, this.bl);
-			this.bl = new ButtonListener();
+			this.g = new GUI();
+
 		} 
 		public static void main (String[]args){
 			StartCipher stc = new StartCipher();

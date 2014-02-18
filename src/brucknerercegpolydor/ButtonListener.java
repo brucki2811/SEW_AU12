@@ -5,25 +5,22 @@ import java.awt.event.ActionListener;
 
 public class ButtonListener implements ActionListener{
 	private GUI g;
-	private MonoAlphabeticCipher mac;
 	
-	public ButtonListener(){
-		this.g = new GUI(this.mac,this);
-		this.mac = new MonoAlphabeticCipher();
+	public ButtonListener(GUI g){
+		this.g = g;
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e){
+		//decypt
 		System.out.println("TEST");
 		if(this.g.getButtonB1(e)){
-			this.g.getCipher();
-			this.g.setText2(this.mac.decrypt(this.g.getText1()));
+			MonoAlphabeticCipher mac = this.g.getCipher();
+			this.g.setText2(mac.encrypt(this.g.getText1()));
 		}
 		if(this.g.getButtonB2(e)){
-			System.out.println("TEST");
-			this.g.getCipher();
-			System.out.println("TEST");
-			this.g.setText2(this.mac.encrypt(this.g.getText1()));
+			MonoAlphabeticCipher mac = this.g.getCipher();
+			this.g.setText2(mac.decrypt(this.g.getText1()));
 		}
 	}
 }

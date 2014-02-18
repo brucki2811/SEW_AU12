@@ -36,10 +36,8 @@ public class GUI {
 	private Container dropdown;
 	
 	
-	public GUI(MonoAlphabeticCipher mac,ButtonListener bl){
-		
-		this.mac = new MonoAlphabeticCipher();
-		this.bl = new ButtonListener();
+	public GUI(){
+		this.bl = new ButtonListener(this);
 		
 		this.f = new JFrame("Verschlüsselung/Entschlüsselung");
 		this.ta1 = new JTextArea();
@@ -83,12 +81,14 @@ public class GUI {
 		this.f.add(this.button, BorderLayout.SOUTH);
 		this.f.add(this.text, BorderLayout.CENTER);
 		
-		this.jb1.addActionListener(new ButtonListener());
-		this.jb2.addActionListener(new ButtonListener());
+		this.jb1.addActionListener(bl);
+		this.jb2.addActionListener(bl);
 		
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setSize(700, 500);
         f.setVisible(true);
+        
+     
         
         drop.addItemListener(new ItemListener() {
         	@Override
@@ -155,17 +155,19 @@ public class GUI {
 	}	
 	
 	
-	public void getCipher(){
-		switch (this.g.getSelectedIndex()){
+	public MonoAlphabeticCipher getCipher(){
+		switch (this.getSelectedIndex()){
 		case 0:
-			kc.setKeyword(this.g.getText3());
-			break;
+			this.kc = new KeywordCipher(this.getText3());
+			return kc;
 		case 1:
-			sbc.setSecretAlphabet(this.getText3());
-			break;
+			this.sc = new ShiftCipher(Integer.parseInt(this.getText3()));
+			return sc;
 		case 2:
-			sc.setShiftAmount(Integer.parseInt(this.g.getText3()));
-			break;
+			this.sbc = new SubstitutionCipher(this.getText3());
+			return sbc;
+			
 		}
+		return null;
 	}
 }
