@@ -14,6 +14,8 @@ import brucknerercegpolydor.SubstitutionCipher;
 
 public class TestSubstitutionCipher {
 
+	/* testen, ob das selber erfundene Geheimalphabet tatsächlich gesetzt wird */
+	
 	@Test
 	public void testSetSecretAlphabet() {
 		SubstitutionCipher sc = new SubstitutionCipher("badcfehgjilknmporqtsvuxwzyöäßü");
