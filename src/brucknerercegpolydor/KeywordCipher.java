@@ -50,13 +50,6 @@ public class KeywordCipher extends MonoAlphabeticCipher {
 		/* das neu generierte Alphabet wird gesetzt */
 		this.setSecretAlphabet(encrypted);
 	}
-	
-	public static void main(String[] args) {
-		
-		KeywordCipher kc = new KeywordCipher("halo");
-		System.out.println(kc.encrypt("haloWelt"));
-		
-	}
 	 
 }
  

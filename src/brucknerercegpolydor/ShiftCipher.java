@@ -45,10 +45,6 @@ public class ShiftCipher extends MonoAlphabeticCipher {
 		this.setSecretAlphabet(encrypted);
 	}
 	
-	public static void main(String[] args) {
-		ShiftCipher sc = new ShiftCipher(2);
-		System.out.println(sc.encrypt("Halloßüäö!9"));
-	}
 
 
 }
