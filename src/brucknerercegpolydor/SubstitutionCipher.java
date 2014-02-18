@@ -17,4 +17,3 @@ public class SubstitutionCipher extends MonoAlphabeticCipher {
 		super.setSecretAlphabet(secretalphabet);
 	}
 }
- 

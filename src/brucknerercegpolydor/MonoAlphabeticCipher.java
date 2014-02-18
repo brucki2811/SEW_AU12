@@ -135,44 +135,31 @@ public class MonoAlphabeticCipher implements Cipher {
 	 * @throws java.lang.NullPointerException wenn diese ausgelöst wird
 	 */
 	public boolean checkSecretAlphabet() {
-		try {
-			char[] secAlphabet = getSecretAlphabet().toCharArray();		// hier wird das secretAlphabet in ein char[] umgewandelt
-			int reduce = 1;		// dient zur Variablen verringerung da nach jedem Durchgang das Zeichen mit dem höchsten Int-Wert am Ende steht
-			char temp = ' ';	// speichert eine der zu tauschenden chars
-			int change;		// kennzeichnet ob ein Tausch stattgefuden hat
-			for (int y = 0; y < getSecretAlphabet().length() - reduce; y++) {
-				change = 0;		// change wird = 0 gesetzt
-				for (int x = 0; x < getSecretAlphabet().length() - reduce; x++) {	// Wiederholt die folgende überprüfung solange, bis das gesamte secretAlphabet nach dem Int-Werten sortiert wurde oder es 2 gleiche Zeichen beinhaltet
-					if (secAlphabet[x] > secAlphabet[x + 1]) {	// Wenn das aktuell Ausgewählte Zeichen größer als das nächste ist wird es vertauscht
-						temp = secAlphabet[x];	// hier wird das aktuell Ausgewählte Zeichen zwischengespeichert
-						secAlphabet[x] = secAlphabet[x + 1];	// hier wird das das kleinere Zeichen an der Position des Größerem gespeichert
-						secAlphabet[x + 1] = temp;	// hier wird das größere Zeichen an der Position des Kleinerem gespeichert
-						change++;	// change wird um 1 erhöht um eine Vertauschung zu kennzeichen
-					} else if (secAlphabet[x] == secAlphabet[x + 1]) {	// Wenn das aktuelle Zeichen gleich dem nächsten wird false return, da 2 gleiche Zeichen vorhanden sind
-						return false;
-					}
+		char[] secAlphabet = getSecretAlphabet().toCharArray();		// hier wird das secretAlphabet in ein char[] umgewandelt
+		int reduce = 1;		// dient zur Variablen verringerung da nach jedem Durchgang das Zeichen mit dem höchsten Int-Wert am Ende steht
+		char temp = ' ';	// speichert eine der zu tauschenden chars
+		int change;		// kennzeichnet ob ein Tausch stattgefuden hat
+		for (int y = 0; y < getSecretAlphabet().length() - reduce; y++) {
+			change = 0;		// change wird = 0 gesetzt
+			for (int x = 0; x < getSecretAlphabet().length() - reduce; x++) {	// Wiederholt die folgende überprüfung solange, bis das gesamte secretAlphabet nach dem Int-Werten sortiert wurde oder es 2 gleiche Zeichen beinhaltet
+				if (secAlphabet[x] > secAlphabet[x + 1]) {	// Wenn das aktuell Ausgewählte Zeichen größer als das nächste ist wird es vertauscht
+					temp = secAlphabet[x];	// hier wird das aktuell Ausgewählte Zeichen zwischengespeichert
+					secAlphabet[x] = secAlphabet[x + 1];	// hier wird das das kleinere Zeichen an der Position des Größerem gespeichert
+					secAlphabet[x + 1] = temp;	// hier wird das größere Zeichen an der Position des Kleinerem gespeichert
+					change++;	// change wird um 1 erhöht um eine Vertauschung zu kennzeichen
+				} else if (secAlphabet[x] == secAlphabet[x + 1]) {	// Wenn das aktuelle Zeichen gleich dem nächsten wird false return, da 2 gleiche Zeichen vorhanden sind
+					return false;
 				}
-				if (change == 0) {	// Wenn change = 0 wird der Durchgang unterbrochen und es wird true returnt da es keine doppelten Zeichen gibt
-					return true;
-				}
-				reduce++;	// wird erhöht da nach jedem Durchgang das größte Zeichen am Ende steht
 			}
-		} catch (NullPointerException e) {
-			throw new NullPointerException();
+			if (change == 0) {	// Wenn change = 0 wird der Durchgang unterbrochen und es wird true returnt da es keine doppelten Zeichen gibt
+				return true;
+			}
+			reduce++;	// wird erhöht da nach jedem Durchgang das größte Zeichen am Ende steht
 		}
 		return true;
 	}
 	
 	public static void main(String[] args) {
-		MonoAlphabeticCipher a = new MonoAlphabeticCipher();
 
-		System.out.println(a.encrypt("adls"));
-		System.out.println(a.decrypt(a.encrypt("adls")));
-		System.out.println();
-
-		SubstitutionCipher b = new SubstitutionCipher("abc0efghijklmnopqr4tuvwxyzäöüß");
-
-		System.out.println(b.encrypt("adfs?"));
-		System.out.println(b.decrypt(b.encrypt("adfs?")));
 	}
 }
