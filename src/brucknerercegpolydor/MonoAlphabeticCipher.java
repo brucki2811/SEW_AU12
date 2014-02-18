@@ -38,7 +38,10 @@ public class MonoAlphabeticCipher implements Cipher {
 	/**
 	 * Ändert das secretAlphabet
 	 * Diese Methode wurde geschrieben um in der Klasse SubstitutionCipher das secretAlphabet zu setzen
+	 * und falls ein ungültiges Alphabet oder eine Exception geworfen wird wird das default secretAlphabet gesetzt
 	 * @param secretAlphabet ist das zu setzende secretAlphabet (länge = 30 und kein doppelten Zeichen)
+	 * @throws java.lang.IllegalArgumentException wenn diese ausgelöst wird
+	 * @throws java.lang.NullPointerException wenn diese ausgelöst wird
 	 */
 	public void setSecretAlphabet(String secretAlphabet) {
 		try {
@@ -50,24 +53,28 @@ public class MonoAlphabeticCipher implements Cipher {
 			}
 		} catch (IllegalArgumentException e) {
 			this.secretAlphabet = "abcdefghijklmnopqrstuvwxyzäöüß";
+			throw new IllegalArgumentException();
 		} catch (NullPointerException e) {
 			this.secretAlphabet = "abcdefghijklmnopqrstuvwxyzäöüß";
+			throw new NullPointerException();
 		}
 	}
 	
 	/**
 	 * Diese Methode verschlüsselt einen Text
 	 * @param text ist der text der Verschlüsselt werden soll
-	 * @return string gibt null zurück wenn der Parameter eine Exception auslöst, wenn keine Exception Ausgelöst wird wird der verschlüsselte Text ausgegeben
+	 * @return string gibt den verschlüsselten Text zurück
+	 * @throws java.lang.IllegalArgumentException wenn diese ausgelöst wird
+	 * @throws java.lang.NullPointerException wenn diese ausgelöst wird
 	 * @see Cipher#encrypt(brucknerercegpolydor)
 	 */
 	public String encrypt(String text) {
 		try {
 			text = text.toLowerCase(Locale.GERMAN);	// wandelt den zu entschlüsselnden Text in Kleinbuchstaben um
-		} catch (IllegalArgumentException e)	{
-			return null;
-		} catch (NullPointerException e)	{
-			return null;
+		} catch (IllegalArgumentException e) {
+			throw new IllegalArgumentException();
+		} catch (NullPointerException e) {
+			throw new NullPointerException();
 		}
 		String textOriginal = text;	// Speichert den Text der entschlüsselt werden soll
 		text = "";	// setzt den Text zu einem leerString
@@ -94,15 +101,17 @@ public class MonoAlphabeticCipher implements Cipher {
 	 * Diese Methode entschlüsselt einen Text
 	 * @param text ist der Text der Entschüsselt werden soll
 	 * @return string gibt den entschlüsselten Text zurück
+	 * @throws java.lang.IllegalArgumentException wenn diese ausgelöst wird
+	 * @throws java.lang.NullPointerException wenn diese ausgelöst wird
 	 * @see Cipher#decrypt(brucknerercegpolydor)
 	 */
 	public String decrypt(String text) {
 		try {
 			text = text.toLowerCase(Locale.GERMAN);	// wandelt den zu entschlüsselnden Text in Kleinbuchstaben um
-		} catch (IllegalArgumentException e)	{
-			return null;
-		} catch (NullPointerException e)	{
-			return null;
+		} catch (IllegalArgumentException e) {
+			throw new IllegalArgumentException();
+		} catch (NullPointerException e) {
+			throw new NullPointerException();
 		}
 		String textOriginal = text;	// Speichert den Text der entschlüsselt werden soll
 		text = "";	// setzt den Text zu einem leerString
@@ -128,6 +137,8 @@ public class MonoAlphabeticCipher implements Cipher {
 	/**
 	 * Diese Methode überprüft ob in dem Angegebenem SecretAlphabet keine doppelten Buchstaben vorhanden sind
 	 * @return true wenn keine doppelten Buchstaben vorhanden sind und falls, wenn 2 doppelte Vorkommen.
+	 * @throws java.lang.IllegalArgumentException wenn diese ausgelöst wird
+	 * @throws java.lang.NullPointerException wenn diese ausgelöst wird
 	 */
 	public boolean checkSecretAlphabet() {
 		try {
@@ -159,9 +170,9 @@ public class MonoAlphabeticCipher implements Cipher {
 				}
 			}
 		} catch (IllegalArgumentException e) {
-			return false;
+			throw new IllegalArgumentException();
 		} catch (NullPointerException e) {
-			return false;
+			throw new NullPointerException();
 		}
 		return true;
 	}
