@@ -8,7 +8,6 @@ package brucknerercegpolydor;
 
 public class SubstitutionCipher extends MonoAlphabeticCipher {
 
-	
 	/**
 	 * Dieser Konstruktor erzeugt ein Objekt mit einem angegebenem secretalphabet
 	 * @param secretalphabet muss 30 Zeichen lang sein und es daf kein Zeichen doppelt vorkommen, falls doch wird ein default secretAlphabet gesetzt
