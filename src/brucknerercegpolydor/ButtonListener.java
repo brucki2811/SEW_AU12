@@ -12,8 +12,6 @@ public class ButtonListener implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e){
-		//decypt
-		System.out.println("TEST");
 		if(this.g.getButtonB1(e)){
 			MonoAlphabeticCipher mac = this.g.getCipher();
 			this.g.setText2(mac.encrypt(this.g.getText1()));
