@@ -6,15 +6,15 @@ package brucknerercegpolydor;
  */
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
-public class StartCipher implements ActionListener, ListSelectionListener {
+public class StartCipher implements ActionListener,  ItemListener {
 	private StartCipher stc;
 	@SuppressWarnings("unused") 
 	private Cipher c;
@@ -55,10 +55,13 @@ public class StartCipher implements ActionListener, ListSelectionListener {
 		this.tf1 = new JTextField();
 		this.jb1 = new JButton("Verschlüsseln");
 		this.jb2 = new JButton("Entschlüsseln");
+		
 		String ComboBoxList[] = {"Keyword Cipher","Shift Cipher","Substitution Cipher"};
 		this.drop = new JComboBox<String>(ComboBoxList);
+		
+		
 		this.l1 = new JLabel("Cipherauswahl:");
-		this.l2 = new JLabel("Verschieben der Zeichen(Zahl):");
+		this.l2 = new JLabel();
 		this.l3 = new JLabel("Eingabe:");
 		this.l4 = new JLabel("Ausgabe:");
 		
@@ -89,10 +92,29 @@ public class StartCipher implements ActionListener, ListSelectionListener {
 		this.f.add(this.text, BorderLayout.CENTER);
 		
 		
+		
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setSize(500, 500);
+        f.setSize(700, 500);
         f.setVisible(true);
         
+        drop.addItemListener(new ItemListener() {
+        	@Override
+			public void itemStateChanged(ItemEvent e) {
+        	
+				switch (drop.getSelectedItem().toString()){
+				
+				case "Keyword Cipher": 
+					l2.setText("Keyword setzen(zB. 'Abend')");
+					break;
+				case "Shift Cipher":
+					l2.setText("Verschieben der Zeichen(Shift Cipher):");
+					break;
+				case "Substitution Cipher":
+					l2.setText("Geheimalphabet angeben (bitte 30 verschiedene Zeichen)");
+				}
+				
+			}
+		});
 	}
 
 	public String getText1() {
@@ -105,8 +127,8 @@ public class StartCipher implements ActionListener, ListSelectionListener {
 	}
 	
 	
-	public void setText1(String text) {
-		ta1.setText(text);
+	public void setText1(String text1) {
+		ta1.setText(text1);
 	}
 	
 	
@@ -129,21 +151,26 @@ public class StartCipher implements ActionListener, ListSelectionListener {
 	
 	public void actionPerformed(ActionEvent e){
 		if(this.stc.getButtonB1(e)){
-			this.stc.setText1(stc.getText2());
+			this.stc.getText1();
+			this.stc.getSelectedIndex();
+			this.stc.setText2(getText2());
 		}
 		if(this.stc.getButtonB2(e)){
 			this.stc.setText2(stc.getText1());
 		}
 	}
 		
-	@Override
-	public void valueChanged(ListSelectionEvent arg0) {
-		
-	}
-	
+	public int getSelectedIndex() {
+		return this.drop.getSelectedIndex();
+	}	
 	
 	public static void main (String[]args){
 		StartCipher stc = new StartCipher();
+		
+	}
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 }

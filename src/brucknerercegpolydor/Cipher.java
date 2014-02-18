@@ -2,7 +2,7 @@ package brucknerercegpolydor;
 
 /**
  * 
- * @author ???
+ * @author Bruckner, Erceg, Polydor
  * @version 2014.2.12
  */
 

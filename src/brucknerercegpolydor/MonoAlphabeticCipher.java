@@ -158,8 +158,5 @@ public class MonoAlphabeticCipher implements Cipher {
 		}
 		return true;
 	}
-	
-	public static void main(String[] args) {
 
-	}
 }
