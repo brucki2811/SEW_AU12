@@ -158,18 +158,22 @@ public class GUI {
 	/*Die Methode getCipher soll mittels switch-case feststellen, welcher Cipher in der Dropdown
 	 * ausgewählt wurde. 
 	 * */
-	public MonoAlphabeticCipher getCipher(){
-		switch (this.getSelectedIndex()){
-		case 0:
-			this.kc = new KeywordCipher(this.getText3());
-			return kc;
-		case 1:
-			this.sc = new ShiftCipher(Integer.parseInt(this.getText3()));
-			return sc;
-		case 2:
-			this.sbc = new SubstitutionCipher(this.getText3());
-			return sbc;
-			
+	public MonoAlphabeticCipher getCipher() {
+		try {
+			switch (this.getSelectedIndex()) {
+				case 0:
+					this.kc = new KeywordCipher(this.getText3());
+					return kc;
+				case 1:
+					this.sc = new ShiftCipher(Integer.parseInt(this.getText3()));
+					return sc;
+				case 2:
+					this.sbc = new SubstitutionCipher(this.getText3());
+					return sbc;
+
+			}
+		} catch (IllegalArgumentException e) {
+			JOptionPane.showMessageDialog(null, "Ihre Eingabe ist fehlerhaft");
 		}
 		return null;
 	}
