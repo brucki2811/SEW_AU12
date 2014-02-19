@@ -51,9 +51,6 @@ public class MonoAlphabeticCipher implements Cipher {
 			if (! this.checkSecretAlphabet()) {	// hier wird überprüft ob es keine doppelten Zeichen beinhaltet, falls doch wird ein default secretAlphabet gesetzt
 				this.secretAlphabet = "abcdefghijklmnopqrstuvwxyzäöüß";
 			}
-		} catch (IllegalArgumentException e) {
-			this.secretAlphabet = "abcdefghijklmnopqrstuvwxyzäöüß";
-			throw new IllegalArgumentException();
 		} catch (NullPointerException e) {
 			this.secretAlphabet = "abcdefghijklmnopqrstuvwxyzäöüß";
 			throw new NullPointerException();
