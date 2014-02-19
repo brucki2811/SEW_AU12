@@ -1,0 +1,25 @@
+@author Stefan Polydor
+
+GUI Testfälle:
+
+1) Combobox "Keyword Cipher" ausgewählt. Feld daneben, keyword setzen: 9. 
+Eingabe unter Eingabe: "Hallo"
+throw new IllegalArgumentException() (Da es ein Wort sein muss und keine Zahl). Diese wird gecatcht und es erscheint ein
+JOptionPane.showMessageDialog() mit der Fehlermeldung "Ihre Eingabe ist Falsch"
+
+
+2) Combobox "Keyword Cipher" ausgewählt. Feld daneben, keyword setzen: "aa". 
+Eingabe unter Eingabe: "Hallo"
+throw new IllegalArgumentException()  (Da keine doppelten zeichen vorkommen dürfen). Diese wird gecatcht und es erscheint ein
+JOptionPane.showMessageDialog() mit der Fehlermeldung "Ihre Eingabe ist Falsch"
+
+3) Combobox "Shift Cipher" ausgewählt. Feld daneben, keyword setzen: -1. 
+Eingabe unter Eingabe: "Hallo"
+throw new IllegalArgumentException() (Da es nicht negativ verschoben wird). Diese wird gecatcht und es erscheint ein
+JOptionPane.showMessageDialog() mit der Fehlermeldung "Ihre Eingabe ist Falsch"
+
+3) Combobox "Shift Cipher" ausgewählt. Feld daneben, keyword setzen: 3. 
+Eingabe unter Eingabe: 
+throw new IllegalArgumentException() (Da ein Text zum verschlüsseln angegeben ist).
+Diese wird gecatcht und es erscheint ein
+JOptionPane.showMessageDialog() mit der Fehlermeldung "Ihre Eingabe ist Falsch"
