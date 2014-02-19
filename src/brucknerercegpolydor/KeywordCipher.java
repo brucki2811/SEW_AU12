@@ -1,5 +1,7 @@
 package brucknerercegpolydor;
 
+import java.util.Locale;
+
 /**
  * 
  * @author Stefan Erceg
@@ -29,7 +31,7 @@ public class KeywordCipher extends MonoAlphabeticCipher {
 		String encrypted;
 		
 		/* das eingegebene Schlüsselwort wird zu Beginn des Alphabets hinzugefügt */
-		encrypted = keyword;
+		encrypted = keyword.toLowerCase(Locale.GERMAN);
 		
 		/* - die for-Schleife geht jeden Buchstaben des Schlüsselworts durch
 		 * - falls bestimmte Buchstaben im Schlüsselwort mehrfach vorkommen, wird eine IllegalArgumentException geworfen */

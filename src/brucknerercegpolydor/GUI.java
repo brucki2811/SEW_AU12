@@ -89,8 +89,8 @@ public class GUI {
         f.setVisible(true);
         
      
-        
         drop.addItemListener(new ItemListener() {
+        	//Soll bei der Auswahl des Ciphers, in der Dropbox,
         	@Override
 			public void itemStateChanged(ItemEvent e) {
         	
