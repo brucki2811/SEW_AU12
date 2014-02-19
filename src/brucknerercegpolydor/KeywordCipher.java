@@ -40,6 +40,12 @@ public class KeywordCipher extends MonoAlphabeticCipher {
 				throw new IllegalArgumentException("Buchstaben dürfen im Wort jeweils nur einmal vorkommen");
 			}
 		}
+		/* falls im Schlüsselwort nicht nur Buchstaben, sondern auch andere Zeichen (z.B. Zahlen) vorkommen, wird eine IllegalArgumentException geworfen */
+		for (int i=0; i < keyword.length(); i++) {
+			if(!this.getSecretAlphabet().contains("" + keyword.charAt(i))) {
+				throw new IllegalArgumentException("Im Schlüsselwort dürfen nur Buchstaben vorkommen");
+			}
+		}
 		
 		/* - die for-Schleife geht jeden Buchstaben des Alphabets durch
 		 * - falls der Buchstabe nicht im Schlüsselwort vorgekommen ist, wird er am Ende des verschlüsselten Alphabets hinzugefügt */
