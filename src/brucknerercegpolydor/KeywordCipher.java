@@ -52,6 +52,6 @@ public class KeywordCipher extends MonoAlphabeticCipher {
 		/* das neu generierte Alphabet wird gesetzt */
 		this.setSecretAlphabet(encrypted);
 	}
-	 
+	
 }
  
