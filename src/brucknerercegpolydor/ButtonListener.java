@@ -14,12 +14,14 @@ public class ButtonListener implements ActionListener{
 	public void actionPerformed(ActionEvent e){
 		//encrypt-Button
 		if(this.g.getButtonB1(e)){
+			//holt sich aus der Methode getCipher das Verschlüsselungsverfahren, nachdem verschlüsselt werden soll
 			MonoAlphabeticCipher mac = this.g.getCipher();
 			//Setzt den verschlüsselten Text in das zweite Feld
 			this.g.setText2(mac.encrypt(this.g.getText1()));
 		}
 		//decrypt-Button
 		if(this.g.getButtonB2(e)){
+			//holt sich aus der Methode getCipher das Entschlüsselungsverfahren, nachdem entschlüsselt werden soll
 			MonoAlphabeticCipher mac = this.g.getCipher();
 			//Setzt den entschlüsselten Text in das zweite Feld
 			this.g.setText2(mac.decrypt(this.g.getText1()));

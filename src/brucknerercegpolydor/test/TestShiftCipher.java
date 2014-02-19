@@ -5,7 +5,11 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import brucknerercegpolydor.ShiftCipher;
-
+/**
+ * 
+ * @author Michael Bruckner
+ * @version 2014.02.18
+ */
 public class TestShiftCipher {
 	//Testen des Geheimalphabets
 	@Test

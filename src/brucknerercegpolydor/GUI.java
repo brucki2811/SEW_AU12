@@ -150,12 +150,14 @@ public class GUI {
         return false;
     }
 	
-		
+	
 	public int getSelectedIndex() {
 		return this.drop.getSelectedIndex();
 	}	
 	
-	
+	/*Die Methode getCipher soll mittels switch-case feststellen, welcher Cipher in der Dropdown
+	 * ausgewählt wurde. 
+	 * */
 	public MonoAlphabeticCipher getCipher(){
 		switch (this.getSelectedIndex()){
 		case 0:
