@@ -30,6 +30,10 @@ public class TestKeywordCipher {
 	public void testSelbeBuchstaben(){
 		KeywordCipher kc = new KeywordCipher("hallo");
 	}
-	
-
+	//Testet ob die IllegalArgumentException geworfen wird, falls eine Zahl im Keyword steht
+	@Test (expected = IllegalArgumentException.class)
+	public void testZahl(){
+		KeywordCipher kc = new KeywordCipher("abc2");
+		
+	}
 }

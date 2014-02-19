@@ -90,7 +90,9 @@ public class GUI {
         
         //ComboBox added ItemListener
         drop.addItemListener(new ItemListener() {
-        	//Soll bei der Auswahl des Ciphers, in der Dropbox, die richtige Hilfestellung im Label geben.
+        	/**
+        	 * Soll bei der Auswahl des Ciphers, in der Dropbox, die richtige Hilfestellung im Label geben.
+        	 */
         	@Override
 			public void itemStateChanged(ItemEvent e) {
         	//switch-case stellt fest was ausgewählt wurde und setzt dann den Text in das JLabel.
@@ -111,53 +113,72 @@ public class GUI {
 		});
 	}
 
-	
+	/**
+	 * Die Methode getText1 holt sich aus dem Eingabe TextArea den Text.
+	 * */
 	public String getText1() {
 		return ta1.getText();
 	}
 	
-	
+	/**
+	 * Die Methode getText2 holt sich aus dem Ausgabe TextArea den Text.
+	 * */
 	public String getText2() {
 		return ta2.getText();
 	}
+	/**
+	 * Die Methode getText3 holt sich aus dem TextField für die Cipher Eingaben die Werte(Text oder Zahl).
+	 * */
 	
 	public String getText3() {
 		return tf1.getText();
 	}
-	
+	/**
+	 * Die Methode setText1 legt den Text, im TextArea Eingabe, fest.
+	 * */
 	public void setText1(String text1) {
 		ta1.setText(text1);
 	}
-	
+	/**
+	 * Die Methode setText2 legt den Text, im TextArea Ausgabe, fest.
+	 * */
 	
 	public void setText2(String text2) {
 		ta2.setText(text2);
 	}
-	
+	/**
+	 * Die Methode setText3 legt den Text, im TextField für die Cipher Eingabe, fest.
+	 * */
 	public void setText3(String text3) {
 		tf1.setText(text3);
 	}
 	
-
+	/**
+	 * ActionListener
+	 * */
 	public boolean getButtonB1(ActionEvent e){
         if(e.getSource() == this.jb1)return true;
         return false;
     }
-	
+	/**
+	 * ActionListener
+	 * */
 	
 	public boolean getButtonB2(ActionEvent e){
         if(e.getSource() == this.jb2)return true;
         return false;
     }
 	
-	
+	/**
+	 * Die Methode getSelectedIndex gibt zurück was ausgewählt wurde.
+	 * */
 	public int getSelectedIndex() {
 		return this.drop.getSelectedIndex();
 	}	
 	
-	/*Die Methode getCipher soll mittels switch-case feststellen, welcher Cipher in der Dropdown
-	 * ausgewählt wurde. 
-	 * */
+	/**Die Methode getCipher soll mittels switch-case feststellen, welcher Cipher in der Dropdown
+	 * ausgewählt wurde.
+	 */
 	public MonoAlphabeticCipher getCipher(){
 		switch (this.getSelectedIndex()){
 		case 0:

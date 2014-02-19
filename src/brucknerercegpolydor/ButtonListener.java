@@ -9,7 +9,9 @@ public class ButtonListener implements ActionListener{
 	public ButtonListener(GUI g){
 		this.g = g;
 	}
-	
+	/**
+	 * Die Methode ActionPerformed wird durch betätigen eines Buttons ausgeführt.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e){
 		//encrypt-Button
