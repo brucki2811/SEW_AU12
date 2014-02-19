@@ -51,7 +51,7 @@ public class GUI {
 		
 		
 		this.l1 = new JLabel("Cipherauswahl:");
-		this.l2 = new JLabel();
+		this.l2 = new JLabel("Keyword setzen(zB. 'Abend')");
 		this.l3 = new JLabel("Eingabe:");
 		this.l4 = new JLabel("Ausgabe:");
 		
@@ -88,12 +88,13 @@ public class GUI {
         f.setSize(700, 500);
         f.setVisible(true);
         
-     
+        //ComboBox added ItemListener
         drop.addItemListener(new ItemListener() {
-        	//Soll bei der Auswahl des Ciphers, in der Dropbox,
+        	//Soll bei der Auswahl des Ciphers, in der Dropbox, die richtige Hilfestellung im Label geben.
         	@Override
 			public void itemStateChanged(ItemEvent e) {
-        	
+        	//switch-case stellt fest was ausgewählt wurde und setzt dann den Text in das JLabel.
+        		//zB: KeywordCipher ---> Keyword setzen(zB. 'Abend')
 				switch (drop.getSelectedItem().toString()){
 				
 				case "Keyword Cipher": 
