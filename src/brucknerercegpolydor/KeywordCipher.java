@@ -42,7 +42,8 @@ public class KeywordCipher extends MonoAlphabeticCipher {
 		}
 		/* falls im Schlüsselwort nicht nur Buchstaben, sondern auch andere Zeichen, z.B. Zahlen, vorkommen, wird eine IllegalArgumentException geworfen */
 		for (int i=0; i < keyword.length(); i++) {
-			if(!this.getSecretAlphabet().contains("" + keyword.charAt(i))) {
+			
+			if(!this.getSecretAlphabet().contains("" + encrypted.charAt(i))) {
 				throw new IllegalArgumentException("Im Schlüsselwort dürfen nur Buchstaben vorkommen");
 			}
 		}
